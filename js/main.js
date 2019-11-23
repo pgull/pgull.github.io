@@ -1,10 +1,10 @@
 var stagePosition = 0;
 var carouselContent = [
     //title, background, midground, foreground, contentID
-    ['Freightliner: 2018 Cascadia','truck.gif','freightliner-configurator'],
+    ['Personal Work','small/A.jpg','personal-work'],
+    ['Freightliner Cascadia','truck.gif','freightliner-configurator'],
     ['University of Tennessee','utkr.jpg','university-of-tennessee'],
-    ['Evolution Design Redesign','edstorefront.jpg','evolution-design'],
-    ['Personal Work','small/A.jpg','personal-work']
+    ['Evolution Design','edstorefront.jpg','evolution-design']
 
 ];
 
@@ -51,17 +51,10 @@ function buildStage(x){
   infox = $('#actor-info').width(),
   no = '0' + eval(x+1),
   slot = x+1;
-
-
-  $('#view').css({'left':'0px'});
   $('#view').attr('content', id);
   $('#page-count').html(no + ' / ' + '0' + carouselContent.length);
-  $('#stage-image').css({'background-image':'url(img/' + bg +')','background-position':'center','transform':'translateY(0)'});
-  $('#actor-info h1').css('right', '0px');
-  $('#actor-info h1').html(no);
-  $('#actor-info h2').css('right', '0px');
-  $('#actor-info h2').html(title);
-  $('#actor-info .button').css('right', '0px');
+  $('#stage-image').css({'background-image':'url(img/' + bg +')'});
+  $('#stage-info h1').html(title);
   setTimeout(function(){
     $('.stage').removeClass('collapsed-stage');
     $('#back-button, #next-button').removeClass('disabled');
@@ -89,7 +82,6 @@ function collapseStage(){
   $('#stage-foreground').fadeOut();
   var picy = $('.stage').height();
   var infox = $('#actor-info').width();
-  $('#stage-image').css({'transform':'translateY(-110%)'});
   $('#stage-midground').css({'background-position':'50% ' + picy + 'px'});
   $('.stage').css({'background-position':'50% ' + '-' + picy + 'px'});
   $('#actor-info h1').css('right', '-' + ($('#actor-info h1').outerWidth() + 50) + 'px');
@@ -153,10 +145,35 @@ $('#back-button').click(function(){
 });
 
 $(window).mousemove(function(e){
-  parallaxHae(e);
+  parallaxIt(e, '#stage-image', -100);
+  parallaxIt(e, '#stage-info', -10);
+});
+$(window).scroll(function(e){
+  parallaxIt(e, '#l0', -.1);
+  parallaxIt(e, '#l1', -1);
+  parallaxIt(e, '#l2', -1.3);
+  parallaxIt(e, '#l3', -1.53);
 });
 
 $(window).on('load',function(){
+  anime.timeline()
+  .add({
+    targets: '.word',
+    translateY: ["3em", 0],
+    translateZ: 0,
+    duration: 2000,
+    easing: "easeOutExpo",
+    delay: (el, i) => 200 * i
+  });
+  anime.timeline()
+  .add({
+    targets: '.line',
+    translateY: ["3em", 0],
+    translateZ: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: (el, i) => (100 * i) + 750
+  });
 
   collapseStage();
   $('.ui').fadeIn(1000,function(){
@@ -209,12 +226,24 @@ function parallaxHae(e){
     var fiddyy = $(window).width()/2;
     var x = (e.clientX - fiddyx);
     var y = (e.clientY - fiddyy);
-    $('#stage-image').css({'background-position':((x/100) + 50) + '% ' + ((y/100) + 50) + '%'});
+    $('#stage-image').css({'background-position':((x/500) + 50) + '% ' + ((y/500) + 50) + '%'});
     // $('#stage-foreground').css({'transform':'translateX('+ x / 120 +'px) translateY('+ y / 400 +'px)'});
     // $('#actor-info').css({'transform':'translateX('+ x / 400 +'px) translateY('+ y / 800 +'px)'});
-    $('.stage').css({'transform':'translate(-' + (50 - (x/800)) + '%, -' + (50 - (y/400)) + '%'});
+    $('#stage-info').css({'transform':'translate(-' + (50 - (x/400)) + '%, -' + (50 - (y/200)) + '%'});
   }
 }
+
+function parallaxIt(e, target, movement) {
+  var $this = $(".masonry");
+  var relY = window.pageYOffset;
+
+  TweenMax.to(target, .5, {
+    y: relY * movement
+  });
+
+  console.log(relY);
+}
+
 
 $('#logo').click(function(){
   if(articleOpen == true){

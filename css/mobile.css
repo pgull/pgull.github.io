@@ -6,7 +6,7 @@
     margin-bottom: 0;
     width: 100%;
     padding-right: 0px;
-    padding-top: 16vh;
+    padding-top: 14vh;
   }
   .article-block {
     width: 100%;
@@ -35,7 +35,6 @@
     opacity: 0;
     animation: fadeUp .5s ease;
     animation-fill-mode: forwards;
-    font-family: 'Abril Fatface', cursive;
     font-weight: normal;
     font-size: 10vw;
     line-height: 1;
