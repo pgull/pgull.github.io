@@ -37,6 +37,7 @@ $(window).scroll(function(e){
             $(this).children('.header-block').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards'});
             $(this).children('.body-block').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay':'.1s'});
             $(this).children('.image').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay':'.3s'});
+            $(this).children('.expert').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay':'.3s'});
         }
     });
 
