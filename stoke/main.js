@@ -13,7 +13,6 @@ function parallaxScroll(e, target, movement) {
   TweenMax.to(target, .5, {
     y: relY * movement
   });
-  console.log(relY);
 }
 
 // $('#hero').mousemove(function(e){
@@ -37,8 +36,25 @@ $(window).scroll(function(e){
             $(this).children('.header-block').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards'});
             $(this).children('.body-block').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay':'.1s'});
             $(this).children('.image').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay':'.3s'});
-            $(this).children('.expert').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay':'.3s'});
-        }
+            $(this).children('.expert.d1').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.1s'});
+            $(this).children('.expert.d2').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.2s'});
+            $(this).children('.expert.d3').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.3s'});
+            $(this).children('.expert.d4').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.4s'});
+            $(this).children('.expert.d5').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.5s'});
+            $(this).children('.expert.d6').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.6s'});
+            $(this).children('.partner.d1').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.1s'});
+            $(this).children('.partner.d2').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.2s'});
+            $(this).children('.partner.d3').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.3s'});
+            $(this).children('.partner.d4').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.4s'});
+            $(this).children('.partner.d5').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.5s'});
+            $(this).children('.partner.d6').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.6s'});
+            $(this).children('.partner.d7').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.7s'});
+            $(this).children('.partner.d8').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.8s'});
+            $(this).children('.partner.d9').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '.9s'});
+            $(this).children('.partner.d10').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '1s'});
+            $(this).children('.partner.d11').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '1.1s'});
+            $(this).children('.partner.d12').css({'animation':'fadeUp 1s ease','animation-fill-mode':'forwards','animation-delay': '1.2s'});
+          }
     });
 
 });
